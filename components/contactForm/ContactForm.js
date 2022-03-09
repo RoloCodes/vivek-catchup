@@ -16,7 +16,7 @@ function ContactForm() {
     },
     onSubmit: async (values) => {
       setStatus('submitting')
-      alert(values)
+      const res = await axios.post('/api/contact', values)
       setStatus('success')
     },
   })
@@ -31,11 +31,23 @@ function ContactForm() {
               <form onSubmit={formik.handleSubmit}>
                 <div>
                   <label>Name</label>
-                  <input id="name" name="name" type="text" onChange={formik.handleChange} value={formik.values.name} />
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    onChange={formik.handleChange}
+                    value={formik.values.name}
+                  />
                 </div>
                 <div>
                   <label>Email</label>
-                  <input id="name" name="email" type="text" onChange={formik.handleChange} value={formik.values.email} />
+                  <input
+                    id="name"
+                    name="email"
+                    type="text"
+                    onChange={formik.handleChange}
+                    value={formik.values.email}
+                  />
                 </div>
                 <div className="button-wrapper">
                   <Button>Get in touch!</Button>
